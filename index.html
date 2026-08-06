@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Documentação da integração de estoque das viaturas do Vendeu Ganhou"
+    />
+    <title>Vendeu Ganhou | Estoque das Viaturas</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swagger-ui-dist@5/swagger-ui.css"
+    />
+    <style>
+      html {
+        box-sizing: border-box;
+        overflow-y: scroll;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+
+      body {
+        margin: 0;
+        background: #fafafa;
+        color: #17233d;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .site-header {
+        display: flex;
+        align-items: center;
+        min-height: 72px;
+        padding: 16px 32px;
+        background: #ffffff;
+        border-bottom: 1px solid #e5e9f0;
+        box-shadow: 0 2px 8px rgba(23, 35, 61, 0.06);
+      }
+
+      .site-header__logo {
+        display: block;
+        width: 140px;
+        height: 32px;
+      }
+
+      .site-header__divider {
+        width: 1px;
+        height: 32px;
+        margin: 0 20px;
+        background: #d8dee9;
+      }
+
+      .site-header__title {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.35;
+      }
+
+      .swagger-ui .topbar {
+        display: none;
+      }
+
+      @media (max-width: 600px) {
+        .site-header {
+          min-height: 64px;
+          padding: 16px 20px;
+        }
+
+        .site-header__logo {
+          width: 105px;
+          height: auto;
+        }
+
+        .site-header__divider {
+          margin: 0 14px;
+        }
+
+        .site-header__title {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <img
+        class="site-header__logo"
+        src="./porto-logo.svg"
+        alt="Porto"
+        width="140"
+        height="32"
+      />
+      <span class="site-header__divider" aria-hidden="true"></span>
+      <h1 class="site-header__title">Integração de estoque das viaturas</h1>
+    </header>
+    <div id="swagger-ui"></div>
+
+    <script src="https://unpkg.com/swagger-ui-dist@5/swagger-ui-bundle.js"></script>
+    <script src="https://unpkg.com/swagger-ui-dist@5/swagger-ui-standalone-preset.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.ui = SwaggerUIBundle({
+          url: "./fleet-battery-stock.openapi.yaml",
+          dom_id: "#swagger-ui",
+          deepLinking: true,
+          persistAuthorization: true,
+          displayRequestDuration: true,
+          presets: [
+            SwaggerUIBundle.presets.apis,
+            SwaggerUIStandalonePreset,
+          ],
+          layout: "StandaloneLayout",
+        });
+      });
+    </script>
+  </body>
+</html>
